@@ -1,0 +1,203 @@
+
+/* Thêm font-family toàn cục */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+.storeSystem {
+  font-family: "Poppins", sans-serif;
+  background-color: #F5F5F5; /* Light gray background */
+  padding: 3rem 1rem;
+  min-height: calc(100vh - 200px);
+  margin-top: 120px;
+}
+
+.marker {
+  display: block;
+  border-radius: 50%;
+}
+
+.storeContainer {
+  display: flex;
+  gap: 2rem;
+  max-width: 1300px;
+  margin: 0 auto;
+  background-color: #FFFFFF; /* White */
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(26, 45, 90, 0.05); /* Navy blue tint */
+}
+
+.storeList {
+  flex: 0 0 450px;
+  background: linear-gradient(135deg, #F8F9FA 0%, #FFFFFF 100%); /* Subtle white gradient */
+  padding: 3rem;
+  border-right: 1px solid rgba(26, 45, 90, 0.05); /* Navy blue tint */
+
+  h1 {
+    color: #1A2D5A; /* Navy blue */
+    text-align: center;
+    margin-bottom: 2.5rem;
+    font-size: 2.8rem;
+    font-weight: 600;
+    position: relative;
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 120px;
+      height: 4px;
+      background: linear-gradient(to right, #F4A261, #E76F51); /* Golden yellow to coral */
+      border-radius: 2px;
+    }
+  }
+}
+
+.storeCard {
+  background-color: #FFFFFF; /* White */
+  border: 2px solid transparent;
+  border-radius: 16px;
+  padding: 2rem;
+  margin-bottom: 1.5rem;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+
+  &:hover {
+    border-color: rgba(26, 45, 90, 0.3); /* Navy blue tint */
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+  }
+
+  &.active {
+    border-color: #1A2D5A; /* Navy blue */
+    background: linear-gradient(135deg, rgba(26, 45, 90, 0.05), rgba(26, 45, 90, 0.02)); /* Navy blue tint */
+
+    h2 {
+      color: #1A2D5A; /* Navy blue */
+    }
+  }
+
+  h2 {
+    color: #2D2D2D; /* Dark gray */
+    margin-bottom: 1rem;
+    font-size: 1.6rem;
+    font-weight: 600;
+    transition: color 0.3s ease;
+  }
+
+  p {
+    color: #555555; /* Medium gray */
+    margin-bottom: 0.8rem;
+    font-size: 1rem;
+    line-height: 1.5;
+
+    strong {
+      color: #1A2D5A; /* Navy blue */
+      margin-right: 0.5rem;
+    }
+  }
+}
+
+.directionsButton {
+  background: linear-gradient(135deg, #1A2D5A, #2B4A8A); /* Navy blue gradient */
+  color: #FFFFFF; /* White */
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  margin-top: 0.5rem;
+  display: inline-block;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(26, 45, 90, 0.3); /* Navy blue tint */
+    background: linear-gradient(135deg, #F4A261, #E76F51); /* Golden yellow to coral */
+  }
+}
+
+.mapContainer {
+  flex: 1;
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative; /* Ensure proper positioning context */
+}
+
+.map {
+  width: 100%;
+  height: 500px;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(26, 45, 90, 0.05); /* Navy blue tint */
+  position: relative;
+
+  /* Ensure map takes full space in fullscreen */
+  &.goongjs-fullscreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 9999;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .storeContainer {
+    flex-direction: column;
+    max-width: 100%;
+  }
+
+  .storeList {
+    flex: 1;
+    border-right: none;
+    border-bottom: 1px solid rgba(26, 45, 90, 0.05); /* Navy blue tint */
+    padding: 2rem;
+  }
+
+  .mapContainer {
+    height: 450px;
+    padding: 1.5rem;
+  }
+
+  .map {
+    height: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  .storeSystem {
+    padding: 1.5rem 0.5rem;
+  }
+
+  .storeList {
+    padding: 1.5rem;
+  }
+
+  .storeCard {
+    padding: 1.5rem;
+  }
+
+  .mapContainer {
+    height: 350px;
+    padding: 1rem;
+  }
+
+  .map {
+    height: 100%;
+  }
+
+  .directionsButton {
+    width: 100%;
+    padding: 0.7rem;
+  }
+}
